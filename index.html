@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ELEKTROCARE menyediakan layanan servis elektronik panggilan ke rumah. Reservasi servis melalui WhatsApp.">
+
+    <script src="theme.js"></script>
+
+    <title>ELEKTROCARE | Jasa Servis Elektronik</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">⚡</span>
+            ELEKTRO<span>CARE</span>
+        </a>
+
+        <nav id="navMenu" aria-label="Navigasi utama">
+            <a href="#home">Beranda</a>
+            <a href="tentang.html">Tentang Kami</a>
+            <a href="#services">Layanan</a>
+            <a href="#reviews">Testimoni</a>
+            <a href="#contact">Kontak</a>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ganti tema" title="Ganti tema" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span></button>
+        </nav>
+
+        <a href="reservasi.html" class="nav-button">
+            Reservasi Servis
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="navMenu">
+            ☰
+        </button>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="hero-label">
+                ELECTRONIC REPAIR SERVICE
+            </span>
+
+            <h1>
+                Solusi Perbaikan
+                <span>Elektronik Anda.</span>
+            </h1>
+
+            <p>
+                Kami menyediakan layanan servis berbagai
+                perangkat elektronik dengan sistem panggilan
+                langsung ke rumah Anda.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="reservasi.html" class="btn-primary">
+                    Pesan Servis Sekarang →
+                </a>
+
+                <a href="#services" class="btn-secondary">
+                    Lihat Layanan
+                </a>
+            </div>
+
+            <div class="hero-info">
+                <span>✓ Reservasi Mudah</span>
+                <span>✓ Layanan Panggilan</span>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="hero-image-fallback" role="img" aria-label="Placeholder gambar teknisi ELEKTROCARE">
+                <span>⚡</span>
+                <strong>ELEKTROCARE</strong>
+                <span>Servis elektronik panggilan ke rumah</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section class="about section" id="about">
+        <div class="section-heading">
+            <span>TENTANG KAMI</span>
+            <h2>Mengenal ELEKTROCARE</h2>
+            <p>
+                Mitra layanan perbaikan perangkat elektronik
+                untuk kebutuhan rumah tangga Anda.
+            </p>
+        </div>
+
+        <div class="about-content">
+            <div>
+                <h3>Solusi servis elektronik dalam satu layanan.</h3>
+                <p>
+                    ELEKTROCARE merupakan brand jasa servis
+                    elektronik yang berfokus pada pelayanan
+                    panggilan ke rumah untuk membantu pelanggan
+                    menangani berbagai masalah perangkat elektronik.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAYANAN -->
+    <section class="services section" id="services">
+        <div class="section-heading">
+            <span>LAYANAN KAMI</span>
+            <h2>Perangkat yang Kami Layani</h2>
+            <p>Pilih perangkat elektronik yang ingin Anda servis.</p>
+        </div>
+
+        <div class="service-grid" id="serviceGrid"></div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section class="reviews section" id="reviews">
+        <div class="section-heading">
+            <span>TESTIMONI</span>
+            <h2>Pengalaman Pelanggan</h2>
+            <p>
+                Kami akan menampilkan ulasan pelanggan
+                setelah layanan berjalan.
+            </p>
+        </div>
+
+        <div class="review-placeholder">
+            <p>★★★★★</p>
+            <h3>Kepercayaan pelanggan adalah prioritas kami.</h3>
+            <span>Ulasan pelanggan akan ditampilkan di sini.</span>
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="contact section" id="contact">
+        <div class="section-heading">
+            <span>HUBUNGI KAMI</span>
+            <h2>Terhubung dengan ELEKTROCARE</h2>
+        </div>
+
+        <p>Lokasi kantor: Tangerang, Indonesia</p>
+        <p>WhatsApp: <a href="https://wa.me/6282249803113" target="_blank" rel="noopener noreferrer">082249803113</a></p>
+        <p>Melayani permintaan dari seluruh Indonesia, sesuai cakupan teknisi.</p>
+
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">TikTok</a>
+        </div>
+    </section>
+
+    <!-- RESERVASI -->
+    <section class="reservation section" id="reservation">
+        <div class="section-heading">
+            <span>BOOKING SERVICE</span>
+            <h2>Reservasi Servis Elektronik</h2>
+            <p>
+                Isi formulir berikut untuk mengajukan
+                permintaan servis melalui WhatsApp.
+            </p>
+        </div>
+
+        <div class="reservation-box">
+            <p>Ajukan servis panggilan ke rumah melalui WhatsApp. Kami akan membantu mengecek ketersediaan teknisi di lokasi Anda.</p>
+            <a class="btn-primary" href="reservasi.html">Isi Formulir Reservasi</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>⚡ ELEKTROCARE</h3>
+        <p>Solusi Perbaikan Elektronik Anda.</p>
+        <p>© 2026 ELEKTROCARE. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

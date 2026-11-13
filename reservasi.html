@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ajukan reservasi servis elektronik panggilan ELEKTROCARE melalui WhatsApp.">
+  <script src="theme.js"></script>
+  <title>Reservasi Servis | ELEKTROCARE</title>
+  <link rel="stylesheet" href="reservasi.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="reservasi.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="ELEKTROCARE, kembali ke beranda"><span class="brand-bolt" aria-hidden="true">⚡</span> ELEKTRO<span>CARE</span></a>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a href="index.html#services">Layanan</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ganti tema" title="Ganti tema" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span></button>
+      <a class="nav-current" href="reservasi.html" aria-current="page">Reservasi</a>
+    </nav>
+    <a class="header-home" href="index.html">← Kembali ke Beranda</a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="intro-inner">
+        <span class="eyebrow">SERVIS PANGGILAN KE RUMAH</span>
+        <h1>Reservasi Layanan <span>ELEKTROCARE</span></h1>
+        <p>Jadwalkan teknisi kami untuk membantu memperbaiki perangkat elektronik Anda.</p>
+        <div class="intro-note"><span aria-hidden="true">ⓘ</span> Permintaan akan dikirim melalui WhatsApp dan jadwal perlu dikonfirmasi oleh admin.</div>
+      </div>
+    </section>
+
+    <div class="page-layout">
+      <form id="reservationForm" novalidate>
+        <section class="form-card" aria-labelledby="customer-title">
+          <div class="card-heading"><span class="step">01</span><div><h2 id="customer-title">Data pelanggan</h2><p>Bagaimana admin dapat menghubungi Anda?</p></div></div>
+          <div class="fields two-columns">
+            <label class="field full-width" for="fullName">Nama lengkap <span class="required">*</span>
+              <input id="fullName" name="fullName" autocomplete="name" required maxlength="100" placeholder="Nama Anda">
+              <small class="error-text"></small>
+            </label>
+            <label class="field" for="phone">Nomor WhatsApp aktif <span class="required">*</span>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="25" placeholder="Contoh: 081234567890">
+              <small class="hint">Gunakan nomor yang dapat dihubungi.</small><small class="error-text"></small>
+            </label>
+            <label class="field" for="email">Email <span class="optional">(opsional)</span>
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="nama@email.com">
+              <small class="error-text"></small>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-card" aria-labelledby="device-title">
+          <div class="card-heading"><span class="step">02</span><div><h2 id="device-title">Perangkat dan keluhan</h2><p>Ceritakan perangkat yang membutuhkan perbaikan.</p></div></div>
+          <div class="fields two-columns">
+            <label class="field" for="device">Jenis perangkat <span class="required">*</span>
+              <select id="device" name="device" required>
+                <option value="">Pilih perangkat</option><option>Kipas Angin</option><option>Televisi</option><option>AC</option><option>Mesin Cuci</option><option>Kulkas</option><option>Speaker</option><option>Setrika</option><option>Rice Cooker</option><option value="other">Perangkat lainnya</option>
+              </select><small class="error-text"></small>
+            </label>
+            <label class="field hidden" id="otherDeviceField" for="otherDevice">Nama perangkat <span class="required">*</span>
+              <input id="otherDevice" name="otherDevice" maxlength="80" placeholder="Contoh: dispenser air">
+              <small class="error-text"></small>
+            </label>
+            <label class="field" for="brand">Merek perangkat <span class="optional">(opsional)</span>
+              <input id="brand" name="brand" maxlength="80" placeholder="Contoh: Samsung">
+            </label>
+            <label class="field" for="model">Model atau tipe <span class="optional">(opsional)</span>
+              <input id="model" name="model" maxlength="100" placeholder="Jika diketahui">
+            </label>
+            <label class="field" for="damageType">Jenis kerusakan <span class="optional">(opsional)</span>
+              <input id="damageType" name="damageType" maxlength="100" placeholder="Contoh: tidak menyala">
+            </label>
+            <label class="field full-width" for="description">Deskripsi lengkap kerusakan <span class="required">*</span>
+              <textarea id="description" name="description" rows="4" required maxlength="1000" placeholder="Jelaskan gejala atau masalah yang dialami perangkat."></textarea><small class="error-text"></small>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-card" aria-labelledby="address-title">
+          <div class="card-heading"><span class="step">03</span><div><h2 id="address-title">Alamat kunjungan</h2><p>Masukkan lokasi lengkap untuk kunjungan teknisi.</p></div></div>
+          <div id="regionStatus" class="region-status" role="status" aria-live="polite">Memuat data wilayah Indonesia…</div>
+          <button id="retryRegions" class="retry-button hidden" type="button">Coba muat ulang data wilayah</button>
+          <div class="fields two-columns region-fields">
+            <label class="field" for="province">Provinsi <span class="required">*</span>
+              <select id="province" name="province" required disabled><option value="">Memuat provinsi…</option></select><small class="error-text"></small>
+            </label>
+            <label class="field" for="regency">Kabupaten/Kota <span class="required">*</span>
+              <select id="regency" name="regency" required disabled><option value="">Pilih provinsi dahulu</option></select><small class="error-text"></small>
+            </label>
+            <label class="field" for="district">Kecamatan <span class="required">*</span>
+              <select id="district" name="district" required disabled><option value="">Pilih kabupaten/kota dahulu</option></select><small class="error-text"></small>
+            </label>
+            <label class="field" for="village">Kelurahan/Desa <span class="required">*</span>
+              <select id="village" name="village" required disabled><option value="">Pilih kecamatan dahulu</option></select><small class="error-text"></small>
+            </label>
+            <label class="field" for="postalCode">Kode pos <span class="optional">(terisi otomatis jika tersedia)</span>
+              <input id="postalCode" name="postalCode" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" placeholder="Contoh: 15111"><small class="error-text"></small>
+            </label>
+            <label class="field full-width" for="address">Nama jalan, nomor rumah, RT/RW, patokan, dan alamat lengkap <span class="required">*</span>
+              <textarea id="address" name="address" rows="3" autocomplete="street-address" required maxlength="500" placeholder="Contoh: Jl. Melati No. 10, RT 02/RW 04, dekat…"></textarea><small class="error-text"></small>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-card" aria-labelledby="schedule-title">
+          <div class="card-heading"><span class="step">04</span><div><h2 id="schedule-title">Jadwal yang diinginkan</h2><p>Pilih waktu kunjungan yang paling sesuai.</p></div></div>
+          <div class="fields two-columns">
+            <label class="field" for="visitDate">Tanggal kunjungan <span class="required">*</span>
+              <input id="visitDate" name="visitDate" type="date" required><small class="error-text"></small>
+            </label>
+            <label class="field" for="visitTime">Jam kunjungan <span class="required">*</span>
+              <input id="visitTime" name="visitTime" type="time" required><small class="error-text"></small>
+            </label>
+          </div>
+          <p class="schedule-note">Tanggal dan jam yang dipilih merupakan permintaan awal. Admin akan mengonfirmasi ketersediaan teknisi dan jadwal melalui WhatsApp.</p>
+        </section>
+
+        <div class="submit-area">
+          <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+          <button class="submit-button" type="submit">Kirim Reservasi via WhatsApp <span aria-hidden="true">→</span></button>
+          <small>Dengan mengirim formulir, WhatsApp akan terbuka dengan ringkasan permintaan Anda.</small>
+        </div>
+      </form>
+
+      <aside class="service-info">
+        <div class="info-icon" aria-hidden="true">⌂</div>
+        <h2>Layanan panggilan ke lokasi</h2>
+        <p>ELEKTROCARE menyediakan layanan perbaikan elektronik dengan sistem panggilan ke lokasi pelanggan. Permintaan dari seluruh Indonesia dapat diajukan, tetapi pelayanan bergantung pada ketersediaan dan jangkauan teknisi di wilayah pelanggan.</p>
+        <a href="https://wa.me/6282249803113" target="_blank" rel="noopener noreferrer">Tanya admin via WhatsApp <span aria-hidden="true">↗</span></a>
+        <div class="source-note">Pilihan wilayah menggunakan data administrasi Indonesia dari <a href="https://github.com/emsifa/api-wilayah-indonesia" target="_blank" rel="noopener noreferrer">API Wilayah Indonesia (Emsifa)</a>, yang merujuk kode Kemendagri dan data BIG.</div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div><a class="brand footer-brand" href="index.html"><span class="brand-bolt" aria-hidden="true">⚡</span> ELEKTRO<span>CARE</span></a><p>Solusi Perbaikan Elektronik Anda.</p></div>
+    <div class="footer-actions"><a class="footer-whatsapp" href="https://wa.me/6282249803113" target="_blank" rel="noopener noreferrer">WhatsApp Admin: 082249803113</a><a href="index.html">Kembali ke Beranda</a></div>
+    <small>© 2026 ELEKTROCARE</small>
+  </footer>
+</body>
+</html>
